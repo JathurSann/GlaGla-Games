@@ -37,7 +37,7 @@ concerné (ou l'hôte pour un joueur « sans téléphone »). Les rôles ne sont
 Table `word_pairs` (`civil_word`, `undercover_word`, `category`, `lang`, `approved`). Les propositions des joueurs arrivent avec `approved = false`.
 
 ## Logo
-`npm run logo` régénère `public/logo.svg` (script `scripts/gen-logo.mjs`) : une testicule poilue aux couleurs de la marque.
+`npm run logo` régénère `public/logo.svg` (script `scripts/gen-logo.mjs`)  : deux joysticks de manette qui pendent sous la manette, aux couleurs de la marque.
 
 ## Idées pour la suite
 Nettoyage automatique des vieux salons (pg_cron), nouveaux jeux (le socle `rooms`/`room_players` est générique), langues, packs de mots premium.
