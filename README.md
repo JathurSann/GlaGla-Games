@@ -4,6 +4,8 @@ Plateforme de jeux de soirée multi-joueurs, façon [TOZ](https://apps.apple.com
 l'hôte crée un salon, les autres le rejoignent avec un **code à 5 caractères**, et chacun reçoit sa carte secrète sur son écran.
 Pas de téléphone ? L'hôte ajoute le joueur et lui **passe son téléphone** (carte et vote en secret).
 
+Deux façons de jouer : **un seul téléphone** (on se le passe, sans compte ni connexion, fonctionne hors-ligne) ou **en ligne** (chacun son téléphone).
+
 Premier jeu : **Undercover** (mots secrets, débat chronométré, vote, Mr. White optionnel).
 À venir : Loup-Garou, Tu préfères, Je n'ai jamais, Action ou vérité…
 

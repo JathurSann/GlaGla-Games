@@ -4,16 +4,19 @@ import { useNavigate } from 'react-router-dom'
 import { api } from '../lib/api'
 import { useAuth } from '../lib/auth'
 import { Page, useToast } from '../components/ui'
+import { isConfigured } from '../lib/supabase'
 
 export default function UndercoverHub() {
   const nav = useNavigate()
-  const { pseudo, setPseudo } = useAuth()
+  const { pseudo, setPseudo, userId } = useAuth()
+  const online = isConfigured && Boolean(userId)
   const { fail, toast } = useToast()
   const [name, setName] = useState(pseudo)
   const [code, setCode] = useState('')
   const [busy, setBusy] = useState(false)
 
   const create = async () => {
+    if (!online) return toast('Mode en ligne indisponible pour le moment.', 'err')
     if (!name.trim()) return toast('Choisis un prénom.', 'err')
     setBusy(true)
     try {
@@ -35,6 +38,16 @@ export default function UndercoverHub() {
         <p>Chacun a un mot… presque le même. Débattez, bluffez, votez.</p>
         <img src={LOGO} alt="" />
       </section>
+
+      <button className="card" style={{ textAlign: 'left', borderColor: 'var(--accent)' }} onClick={() => nav('/undercover/local')}>
+        <h2>📱 Un seul téléphone</h2>
+        <p className="muted">Comme d'habitude : on se passe le téléphone pour découvrir sa carte. Pas de compte, pas de connexion.</p>
+        <span className="btn btn-primary" style={{ pointerEvents: 'none' }}>Jouer sur ce téléphone</span>
+      </button>
+
+      <h2 className="section-title" style={{ marginTop: 6 }}>🌐 En ligne</h2>
+      <p className="muted" style={{ marginTop: -8 }}>Chacun joue depuis son propre téléphone avec un code de salon.</p>
+      {!online && <p className="banner">Le mode en ligne n'est pas disponible (connexion en cours ou non configurée).</p>}
 
       <div className="card">
         <h2>Créer un salon</h2>

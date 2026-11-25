@@ -7,6 +7,7 @@ import UndercoverHub from './pages/UndercoverHub'
 import Suggest from './pages/Suggest'
 import Profile from './pages/Profile'
 import RoomPage from './pages/Room'
+import LocalGame from './pages/LocalGame'
 
 function NotConfigured() {
   return (
@@ -22,7 +23,7 @@ function NotConfigured() {
   )
 }
 
-function Shell() {
+function Gate({ children }: { children: React.ReactNode }) {
   const { ready, userId, error } = useAuth()
   if (!isConfigured) return <NotConfigured />
   if (!ready) return <Spinner label="Connexion…" />
@@ -37,14 +38,19 @@ function Shell() {
       </main>
     )
   }
+  return <>{children}</>
+}
+
+function Shell() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/undercover" element={<UndercoverHub />} />
-      <Route path="/undercover/mots" element={<Suggest />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/room/:code" element={<RoomPage />} />
-      <Route path="/join/:code" element={<RoomPage />} />
+      <Route path="/undercover/local" element={<LocalGame />} />
+      <Route path="/undercover/mots" element={<Gate><Suggest /></Gate>} />
+      <Route path="/profile" element={<Gate><Profile /></Gate>} />
+      <Route path="/room/:code" element={<Gate><RoomPage /></Gate>} />
+      <Route path="/join/:code" element={<Gate><RoomPage /></Gate>} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
