@@ -1,3 +1,4 @@
+import { LOGO } from '../lib/supabase'
 import { createContext, useCallback, useContext, useState, type ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { errMsg } from '../lib/api'
@@ -43,7 +44,7 @@ export function Header({ title, back }: { title?: string; back?: string | boolea
       {back ? (
         <button className="round-btn" aria-label="Retour" onClick={() => (typeof back === 'string' ? nav(back) : nav(-1))}>←</button>
       ) : (
-        <button className="round-btn" aria-label="Accueil" onClick={() => nav('/')}><img src="/logo.svg" alt="" /></button>
+        <button className="round-btn" aria-label="Accueil" onClick={() => nav('/')}><img src={LOGO} alt="" /></button>
       )}
       <h1>{title ?? 'GlaGla Jeux'}</h1>
       <button className="round-btn" aria-label="Profil" onClick={() => nav('/profile')}>{isGuest ? '👤' : '😎'}</button>

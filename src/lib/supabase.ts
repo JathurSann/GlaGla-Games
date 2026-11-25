@@ -8,3 +8,4 @@ export const isConfigured = Boolean(url && key)
 export const supabase = createClient(url ?? 'http://localhost:54321', key ?? 'missing-key', {
   auth: { persistSession: true, autoRefreshToken: true },
 })
+export const LOGO = `${import.meta.env.BASE_URL}logo.svg`

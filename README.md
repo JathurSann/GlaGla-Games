@@ -41,3 +41,9 @@ Table `word_pairs` (`civil_word`, `undercover_word`, `category`, `lang`, `approv
 
 ## Idées pour la suite
 Nettoyage automatique des vieux salons (pg_cron), nouveaux jeux (le socle `rooms`/`room_players` est générique), langues, packs de mots premium.
+
+## Déploiement (GitHub Pages)
+Le workflow `.github/workflows/deploy.yml` construit et publie le site à chaque push sur `main`.
+1. Repo → **Settings → Pages → Source : GitHub Actions**.
+2. Repo → **Settings → Secrets and variables → Actions → onglet Variables** : ajoute `VITE_SUPABASE_URL` et `VITE_SUPABASE_ANON_KEY` (clé **anon / publishable**, jamais la clé secrète).
+3. Supabase → **Authentication → URL Configuration** : Site URL = `https://<user>.github.io/GlaGla-Jeux/`.

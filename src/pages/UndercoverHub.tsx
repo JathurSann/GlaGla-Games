@@ -1,3 +1,4 @@
+import { LOGO } from '../lib/supabase'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { api } from '../lib/api'
@@ -32,7 +33,7 @@ export default function UndercoverHub() {
       <section className="hero">
         <h2>Démasque<br />l'infiltré</h2>
         <p>Chacun a un mot… presque le même. Débattez, bluffez, votez.</p>
-        <img src="/logo.svg" alt="" />
+        <img src={LOGO} alt="" />
       </section>
 
       <div className="card">

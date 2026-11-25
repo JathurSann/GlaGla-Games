@@ -1,3 +1,4 @@
+import { LOGO } from '../../lib/supabase'
 import { useEffect, useState } from 'react'
 import { api } from '../../lib/api'
 import type { Secret } from '../../lib/types'
@@ -33,7 +34,7 @@ export default function SecretCard({ playerId, name, markReady, onDone }: Props)
       <button className={`secret ${shown ? 'shown' : ''} ${shown && secret ? 'r-' + secret.role : ''}`} onClick={toggle} aria-label="Afficher ou cacher la carte">
         {!shown && (
           <div>
-            <img src="/logo.svg" alt="" />
+            <img src={LOGO} alt="" />
             <p className="hint">{name ? `Carte de ${name}` : 'Ta carte secrète'}</p>
             <p className="sub">Touche pour voir — personne ne doit regarder 👀</p>
           </div>

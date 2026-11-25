@@ -1,6 +1,6 @@
 import { HashRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './lib/auth'
-import { isConfigured } from './lib/supabase'
+import { isConfigured, LOGO } from './lib/supabase'
 import { Spinner, ToastProvider } from './components/ui'
 import Home from './pages/Home'
 import UndercoverHub from './pages/UndercoverHub'
@@ -11,7 +11,7 @@ import RoomPage from './pages/Room'
 function NotConfigured() {
   return (
     <main className="page" style={{ paddingTop: 48 }}>
-      <img src="/logo.svg" alt="" style={{ width: 90, margin: '0 auto' }} />
+      <img src={LOGO} alt="" style={{ width: 90, margin: '0 auto' }} />
       <h1 className="section-title" style={{ textAlign: 'center' }}>Connexion Supabase manquante</h1>
       <div className="card">
         <p>Crée un fichier <code>.env</code> à la racine avec :</p>

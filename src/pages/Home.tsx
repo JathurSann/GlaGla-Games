@@ -1,3 +1,4 @@
+import { LOGO } from '../lib/supabase'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Page, useToast } from '../components/ui'
@@ -28,7 +29,7 @@ export default function Home() {
       <section className="hero">
         <h2>Rejoins<br />ton salon</h2>
         <p>Entre le code affiché sur le téléphone de l'hôte.</p>
-        <img src="/logo.svg" alt="" />
+        <img src={LOGO} alt="" />
       </section>
 
       <div className="row">
